@@ -54,11 +54,11 @@ jobs:
           done
           
           # set outputs
-          if [[ "${{ github.ref }}" == "refs/tags/"* ]]; then
-            is_matched_backend=1
-            is_matched_frontend=1
-            is_matched_dockerfile=1
-          fi
+          #if [[ "${{ github.ref }}" == "refs/tags/"* ]]; then
+          is_matched_backend=1
+          is_matched_frontend=1
+          is_matched_dockerfile=1
+          #fi
           
           echo "::set-output name=is_matched_backend::$is_matched_backend"
           echo "::set-output name=is_matched_frontend::$is_matched_frontend"
