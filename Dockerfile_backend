@@ -1,0 +1,16 @@
+FROM golang:1.22
+
+RUN go env -w GOPROXY=https://goproxy.io,https://goproxy.cn && \
+    go env -w GO111MODULE="on"
+
+# set as non-interactive
+ENV DEBIAN_FRONTEND noninteractive
+
+
+WORKDIR /app
+
+COPY . .
+
+RUN cd backend && go mod tidy && go build -o crawlab
+
+CMD ["/bin/bash","./crawlab","s"]
