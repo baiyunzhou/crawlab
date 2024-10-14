@@ -345,6 +345,13 @@ func InitRoutes(app *gin.Engine) (err error) {
 			HandlerFunc: GetSystemInfo,
 		},
 	})
+	RegisterActions(groups.AnonymousGroup, "/version", []Action{
+		{
+			Path:        "",
+			Method:      http.MethodGet,
+			HandlerFunc: Version,
+		},
+	})
 	RegisterActions(groups.AnonymousGroup, "/", []Action{
 		{
 			Method:      http.MethodPost,

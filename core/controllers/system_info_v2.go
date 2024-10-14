@@ -13,3 +13,7 @@ func GetSystemInfo(c *gin.Context) {
 	}
 	HandleSuccessWithData(c, info)
 }
+
+func Version(c *gin.Context) {
+	HandleSuccessWithData(c, viper.GetString("version"))
+}
