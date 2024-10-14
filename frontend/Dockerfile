@@ -9,7 +9,7 @@ RUN npm i -g pnpm@7
 RUN pnpm install
 RUN pnpm run build
 
-FROM alpine:3.14
+FROM nginx:1.27.2
 
 # copy files
 COPY --from=build /app/dist /app/dist
