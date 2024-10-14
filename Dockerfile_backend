@@ -12,8 +12,8 @@ WORKDIR /app
 COPY . .
 
 RUN cp -r  backend/conf .
-RUN cd backend && go mod tidy
-RUN go build -o crawlab
+RUN cd /app/backend && go mod tidy
+RUN cd /app/backend && go build -o crawlab
 
 
  CMD ["/app/backend/crawlab","server"]
