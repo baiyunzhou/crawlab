@@ -16,4 +16,4 @@ RUN cd backend && go mod tidy
 RUN go build -o crawlab
 
 
-# CMD ["/bin/bash","-c","/app/backend/crawlab","server"]
+ CMD ["/app/backend/crawlab","server"]
