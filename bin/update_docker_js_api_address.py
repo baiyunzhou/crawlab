@@ -21,4 +21,4 @@ for file_name in os.listdir(dir_path):
     with open(file_path, 'w') as f:
         f.write(content)
 
-    print(f'replaced api url in file: {file_name}')
+    print(file_name)
