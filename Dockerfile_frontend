@@ -16,4 +16,4 @@ FROM nginx:1.27.2
 
 # copy files
 COPY --from=build /app/frontend/dist /app/dist
-COPY --from=build /app/nginx/crawlab.conf /etc/nginx/config.d/crawlab.conf
+COPY --from=build /app/nginx/crawlab.conf /etc/nginx/conf.d/crawlab.conf
