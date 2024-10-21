@@ -1,41 +1,39 @@
 version: '3.3'
 services:
-  master:
+  zby_crawlab_master:
     image: zby/crawlab
     container_name: zby_crawlab_master
     environment:
       CRAWLAB_NODE_MASTER: "Y"
-      CRAWLAB_NODE_NAME: "MASTER"
+      CRAWLAB_NODE_NAME: "zby_crawlab_master"
       CRAWLAB_MONGO_HOST: "zby_mongo"
     ports:
-      - "8080:8080"
-      - "8000:8000"
-      - "9666:9666"
-      - "8888:8888"
+      - "18080:8080"
+      - "18000:8000"
+      - "19666:9666"
+      - "18888:8888"
     depends_on:
-      - mongo
-  worker01:
+      - zby_mongo
+  zby_crawlab_node01:
     image: zby/crawlab
     container_name: zby_crawlab_node01
     environment:
       CRAWLAB_NODE_MASTER: "N"
-      CRAWLAB_NODE_NAME: "Worker Node 01"
-      CRAWLAB_GRPC_ADDRESS: "master"
+      CRAWLAB_NODE_NAME: "zby_crawlab_node01"
+      CRAWLAB_GRPC_ADDRESS: "zby_crawlab_master"
     depends_on:
-      - master
-  worker02:
+      - zby_crawlab_master
+  zby_crawlab_node02:
     image: zby/crawlab
     container_name: zby_crawlab_node02
     environment:
       CRAWLAB_NODE_MASTER: "N"
-      CRAWLAB_NODE_NAME: "Worker Node 02"
-      CRAWLAB_GRPC_ADDRESS: "master"
+      CRAWLAB_NODE_NAME: "zby_crawlab_node02"
+      CRAWLAB_GRPC_ADDRESS: "zby_crawlab_master"
     depends_on:
-      - master
-      - worker01
-  mongo:
+      - zby_crawlab_master
+      - zby_crawlab_node01
+  zby_mongo:
     container_name: zby_mongo
     image: mongo:4.2
     restart: always
-    ports:
-      - "27017:27017"
