@@ -1,6 +1,6 @@
 import os
 
-dir_path = '/app/dist/assets'
+dir_path = '/app/frontend/dist/assets'
 
 for file_name in os.listdir(dir_path):
     if not file_name.endswith('.js'):
