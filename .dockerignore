@@ -11,5 +11,6 @@ dist/
 k8s
 workspace
 .git/
-.build_backend.sh
+.build_image.sh
 Dockerfile_backend
+Dockerfile_frontend
