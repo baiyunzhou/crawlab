@@ -1,1 +1,0 @@
-docker build . --file=Dockerfile_backend -t zby/crawlab

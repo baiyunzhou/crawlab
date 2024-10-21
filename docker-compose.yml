@@ -1,7 +1,14 @@
 version: '3.3'
 services:
+  zby_crawlab_frontend:
+    image: zby/crawlab_frontend
+    container_name: crawlab_frontend
+    ports:
+      - "18080:8080"
+    depends_on:
+      - zby_crawlab_master
   zby_crawlab_master:
-    image: zby/crawlab
+    image: zby/crawlab_backend
     container_name: zby_crawlab_master
     environment:
       CRAWLAB_NODE_MASTER: "Y"
@@ -15,7 +22,7 @@ services:
     depends_on:
       - zby_mongo
   zby_crawlab_node01:
-    image: zby/crawlab
+    image: zby/crawlab_backend
     container_name: zby_crawlab_node01
     environment:
       CRAWLAB_NODE_MASTER: "N"
@@ -24,7 +31,7 @@ services:
     depends_on:
       - zby_crawlab_master
   zby_crawlab_node02:
-    image: zby/crawlab
+    image: zby/crawlab_backend
     container_name: zby_crawlab_node02
     environment:
       CRAWLAB_NODE_MASTER: "N"
