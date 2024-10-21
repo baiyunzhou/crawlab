@@ -10,7 +10,7 @@ RUN npm config set registry "http://registry.npm.taobao.org"
 RUN npm i -g pnpm@7
 RUN pnpm install
 RUN pnpm run build
-RUN /bin/sh /app/bin/update_docker_js_api_address.py
+RUN python /app/bin/update_docker_js_api_address.py
 
 FROM nginx:1.27.2
 
