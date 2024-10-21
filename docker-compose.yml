@@ -15,7 +15,6 @@ services:
       CRAWLAB_NODE_NAME: "zby_crawlab_master"
       CRAWLAB_MONGO_HOST: "zby_mongo"
     ports:
-      - "18080:8080"
       - "18000:8000"
       - "19666:9666"
       - "18888:8888"

@@ -15,5 +15,5 @@ RUN python /app/bin/update_docker_js_api_address.py
 FROM nginx:1.27.2
 
 # copy files
-COPY --from=build /app/dist /app/dist
+COPY --from=build /app/front/dist /app/dist
 COPY --from=build /app/nginx/crawlab.conf /etc/nginx/conf.d/crawlab.conf
