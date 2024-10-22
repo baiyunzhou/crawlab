@@ -19,7 +19,7 @@ services:
       - "19666:9666"
       - "18888:8888"
     depends_on:
-      - atta_mongo
+      - atta_crawlab_mongo
   atta_crawlab_node01:
     image: atta/crawlab_backend
     container_name: atta_crawlab_node01
