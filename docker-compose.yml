@@ -1,14 +1,14 @@
 version: '3.3'
 services:
   atta_crawlab_frontend:
-    image: atta/crawlab_frontend
+    image: atta/crawlab_frontend:1.0.0
     container_name: atta_crawlab_frontend
     ports:
       - "18080:8080"
     depends_on:
       - atta_crawlab_master
   atta_crawlab_master:
-    image: atta/crawlab_backend
+    image: atta/crawlab_backend:1.0.0
     container_name: atta_crawlab_master
     environment:
       CRAWLAB_NODE_MASTER: "Y"
@@ -21,7 +21,7 @@ services:
     depends_on:
       - atta_crawlab_mongo
   atta_crawlab_node01:
-    image: atta/crawlab_backend
+    image: atta/crawlab_backend:1.0.0
     container_name: atta_crawlab_node01
     environment:
       CRAWLAB_NODE_MASTER: "N"
@@ -30,7 +30,7 @@ services:
     depends_on:
       - atta_crawlab_master
   atta_crawlab_node02:
-    image: atta/crawlab_backend
+    image: atta/crawlab_backend:1.0.0
     container_name: atta_crawlab_node02
     environment:
       CRAWLAB_NODE_MASTER: "N"
@@ -40,6 +40,6 @@ services:
       - atta_crawlab_master
       - atta_crawlab_node01
   atta_crawlab_mongo:
-    container_name: atta_crawlab_mongo
     image: mongo:4.2
+    container_name: atta_crawlab_mongo
     restart: always
