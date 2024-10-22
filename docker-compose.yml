@@ -2,7 +2,7 @@ version: '3.3'
 services:
   zby_crawlab_frontend:
     image: zby/crawlab_frontend
-    container_name: crawlab_frontend
+    container_name: zby_crawlab_frontend
     ports:
       - "18080:8080"
     depends_on:
