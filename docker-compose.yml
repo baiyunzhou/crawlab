@@ -1,45 +1,45 @@
 version: '3.3'
 services:
-  xt_crawlab_frontend:
-    image: xt/crawlab_frontend
-    container_name: xt_crawlab_frontend
+  atta_crawlab_frontend:
+    image: atta/crawlab_frontend
+    container_name: atta_crawlab_frontend
     ports:
       - "18080:8080"
     depends_on:
-      - xt_crawlab_master
-  xt_crawlab_master:
-    image: xt/crawlab_backend
-    container_name: xt_crawlab_master
+      - atta_crawlab_master
+  atta_crawlab_master:
+    image: atta/crawlab_backend
+    container_name: atta_crawlab_master
     environment:
       CRAWLAB_NODE_MASTER: "Y"
-      CRAWLAB_NODE_NAME: "xt_crawlab_master"
-      CRAWLAB_MONGO_HOST: "xt_crawlab_mongo"
+      CRAWLAB_NODE_NAME: "atta_crawlab_master"
+      CRAWLAB_MONGO_HOST: "atta_crawlab_mongo"
     ports:
       - "18000:8000"
       - "19666:9666"
       - "18888:8888"
     depends_on:
-      - xt_mongo
-  xt_crawlab_node01:
-    image: xt/crawlab_backend
-    container_name: xt_crawlab_node01
+      - atta_mongo
+  atta_crawlab_node01:
+    image: atta/crawlab_backend
+    container_name: atta_crawlab_node01
     environment:
       CRAWLAB_NODE_MASTER: "N"
-      CRAWLAB_NODE_NAME: "xt_crawlab_node01"
-      CRAWLAB_GRPC_ADDRESS: "xt_crawlab_master"
+      CRAWLAB_NODE_NAME: "atta_crawlab_node01"
+      CRAWLAB_GRPC_ADDRESS: "atta_crawlab_master"
     depends_on:
-      - xt_crawlab_master
-  xt_crawlab_node02:
-    image: xt/crawlab_backend
-    container_name: xt_crawlab_node02
+      - atta_crawlab_master
+  atta_crawlab_node02:
+    image: atta/crawlab_backend
+    container_name: atta_crawlab_node02
     environment:
       CRAWLAB_NODE_MASTER: "N"
-      CRAWLAB_NODE_NAME: "xt_crawlab_node02"
-      CRAWLAB_GRPC_ADDRESS: "xt_crawlab_master"
+      CRAWLAB_NODE_NAME: "atta_crawlab_node02"
+      CRAWLAB_GRPC_ADDRESS: "atta_crawlab_master"
     depends_on:
-      - xt_crawlab_master
-      - xt_crawlab_node01
-  xt_crawlab_mongo:
-    container_name: xt_mongo
+      - atta_crawlab_master
+      - atta_crawlab_node01
+  atta_crawlab_mongo:
+    container_name: atta_mongo
     image: mongo:4.2
     restart: always
