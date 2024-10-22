@@ -40,6 +40,6 @@ services:
       - atta_crawlab_master
       - atta_crawlab_node01
   atta_crawlab_mongo:
-    container_name: atta_mongo
+    container_name: atta_crawlab_mongo
     image: mongo:4.2
     restart: always
